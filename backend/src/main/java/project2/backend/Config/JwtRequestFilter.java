@@ -1,6 +1,6 @@
 package project2.backend.Config;
 
-import social.project2.Services.PersonService;
+import project2.backend.Services.PersonService;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

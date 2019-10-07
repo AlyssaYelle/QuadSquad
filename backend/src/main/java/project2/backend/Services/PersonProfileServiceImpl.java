@@ -2,9 +2,9 @@ package project2.backend.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import social.project2.Models.Person;
-import social.project2.Models.PersonProfile;
-import social.project2.Repositories.PersonProfileRepository;
+import project2.backend.Models.Person;
+import project2.backend.Models.PersonProfile;
+import project2.backend.Repositories.PersonProfileRepository;
 
 @Service
 public class PersonProfileServiceImpl implements PersonProfileService {
