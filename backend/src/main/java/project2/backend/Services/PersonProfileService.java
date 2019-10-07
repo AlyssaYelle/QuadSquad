@@ -1,7 +1,7 @@
 package project2.backend.Services;
 
 
-import social.project2.Models.PersonProfile;
+import project2.backend.Models.PersonProfile;
 
 public interface PersonProfileService {
 

@@ -9,10 +9,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import social.project2.Config.JwtUtil;
-import social.project2.Models.Person;
-import social.project2.Models.PersonRole;
-import social.project2.Repositories.PersonRepository;
+import project2.backend.Config.JwtUtil;
+import project2.backend.Models.Person;
+import project2.backend.Models.PersonRole;
+import project2.backend.Repositories.PersonRepository;
 
 import java.util.ArrayList;
 import java.util.List;
