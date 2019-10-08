@@ -26,7 +26,6 @@ public class PersonRole {
     @JsonIgnore
     private List<Person> people;
 
-
     public PersonRole(){}
 
     public void addPerson(Person person){
