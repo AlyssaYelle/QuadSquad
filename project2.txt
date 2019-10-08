@@ -1,0 +1,131 @@
+UserService
+
+package com.example.springbootmonolith.Service;
+
+import com.example.springbootmonolith.model.User;
+
+public interface UserService {
+
+    public String login (User user);
+
+    public User createUser (User newUser);
+
+    public User addPost(String username, long postId);
+
+    public User addComment(String username,long commentId);
+
+    public Iterable<User> listUsers();
+
+    public User getUser(String username);
+
+}
+
+PostService
+
+package com.example.springbootmonolith.Service;
+
+import com.example.springbootmonolith.model.Post;
+
+public interface PostService {
+
+    public Post createPost(Post post);
+
+    public Iterable<Post> listPosts();
+
+}
+
+
+Comment Service
+package com.example.springbootmonolith.Service;
+
+import com.example.springbootmonolith.model.Comment;
+
+public interface CommentService {
+
+    public Comment createComment (Comment comment);
+
+    public Iterable<Comment> listComments();
+}
+
+PostServiceImpl
+
+package com.example.springbootmonolith.Service;
+
+import com.example.springbootmonolith.Repository.PostRepository;
+import com.example.springbootmonolith.model.Post;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class PostServiceImpl implements PostService{
+
+    @Autowired
+    PostRepository postRepository;
+
+    @Override
+    public Post createPost(Post post){ return postRepository.save(post);}
+
+    @Override
+    public Iterable<Post> listPosts(){
+        return postRepository.findAll();
+    }
+
+
+}
+
+Comment Service Impl
+package com.example.springbootmonolith.Service;
+
+import com.example.springbootmonolith.Repository.CommentRepository;
+import com.example.springbootmonolith.model.Comment;
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class CommentServiceImpl implements CommentService {
+
+    @Autowired
+    CommentRepository commentRepository;
+
+    @Override
+    public Comment createComment(Comment comment) {
+        return commentRepository.save(comment);
+    }
+
+    @Override
+    public Iterable<Comment> listComments(){
+        return commentRepository.findAll();
+    }
+
+}
+
+Comment repository
+package com.example.springbootmonolith.Repository;
+
+import com.example.springbootmonolith.model.Comment;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface CommentRepository extends CrudRepository<Comment, Long> {
+
+}
+
+
+Post repository
+
+package com.example.springbootmonolith.Repository;
+
+import com.example.springbootmonolith.model.Post;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface PostRepository extends CrudRepository <Post, Long> {
+
+}
+
+
+
+
+
+
+}
