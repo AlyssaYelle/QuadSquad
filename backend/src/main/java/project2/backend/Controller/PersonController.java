@@ -27,6 +27,7 @@ public class PersonController {
 
     @PostMapping("/signup")
     public ResponseEntity<?> createPerson(@RequestBody Person newPerson) {
+        System.out.println("We Are Here sign up endpoint");
         return ResponseEntity.ok(new JwtResponse(personService.createPerson(newPerson)));
     }
 
