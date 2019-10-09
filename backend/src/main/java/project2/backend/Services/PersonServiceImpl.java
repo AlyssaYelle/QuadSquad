@@ -70,26 +70,30 @@ public class PersonServiceImpl implements PersonService{
     @Override
     public String createPerson(Person newPerson) {
 
-        System.out.println("creating user");
+        System.out.println("creating userdfsdfsdfs");
         System.out.println(personRoleService);
         System.out.println(newPerson);
         System.out.println(newPerson.getPersonRole());
         System.out.println(newPerson.getPersonRole().getName());
+
         PersonRole personRole = personRoleService.getRole(newPerson.getPersonRole().getName());
         if (personRole == null) {
             System.out.println("null user role");
         }
+
         System.out.println(personRole);
+
         newPerson.setPersonRole(personRole);
-        newPerson.setPassword(bCryptPasswordEncoder.encode(newPerson.getPassword()));
+//        newPerson.setPassword(bCryptPasswordEncoder.encode(newPerson.getPassword()));
+
         System.out.println(newPerson.getPassword());
         System.out.println(newPerson.getUsername());
+
         if(personRepository.save(newPerson) != null){
             UserDetails userDetails = loadUserByUsername(newPerson.getUsername());
             return jwtUtil.generateToken(userDetails);
         }
         return null;
-
     }
 
     // log in existing person
