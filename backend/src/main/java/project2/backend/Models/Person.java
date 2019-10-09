@@ -3,6 +3,7 @@ package project2.backend.Models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -77,6 +78,7 @@ public class Person {
     @JsonIgnore
     private List<Comment> comments;
 
+
     public Person(){};
 
     public List<Post> getPosts() {
@@ -131,5 +133,13 @@ public class Person {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Post> addPost(Post post){
+        if(posts == null){
+            posts = new ArrayList<>();
+        }
+        posts.add(post);
+        return posts;
     }
 }
