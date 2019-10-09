@@ -84,7 +84,7 @@ public class PersonServiceImpl implements PersonService{
         System.out.println(personRole);
 
         newPerson.setPersonRole(personRole);
-//        newPerson.setPassword(bCryptPasswordEncoder.encode(newPerson.getPassword()));
+        newPerson.setPassword(bCryptPasswordEncoder.encode(newPerson.getPassword()));
 
         System.out.println(newPerson.getPassword());
         System.out.println(newPerson.getUsername());
