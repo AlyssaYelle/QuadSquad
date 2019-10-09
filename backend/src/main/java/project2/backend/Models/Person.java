@@ -142,4 +142,13 @@ public class Person {
         posts.add(post);
         return posts;
     }
+
+    public List<Comment> addComment(Comment comment){
+        if (comment==null ){
+            comments = new ArrayList<>();
+        }
+        comments.add(comment);
+
+        return comments;
+    }
 }
