@@ -4,7 +4,13 @@ import project2.backend.Models.Comment;
 
 public interface CommentService {
 
-    public Comment createComment (Comment comment);
+    // need method to list all comments
+    public Iterable<Comment> listAllComments();
 
-    public Iterable<Comment> listComments();
+    // need method to create a comment
+    public Comment createComment(Comment comment);
+
+    // need method to delete a comment by its unique id
+    public void deleteCommentById(Long commentId);
+
 }
