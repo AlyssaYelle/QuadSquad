@@ -114,7 +114,7 @@ public class PersonServiceImpl implements PersonService {
         return null;
     }
 
-    // log out person
+    // deletes person
     @Override
     public HttpStatus deleteById(Long userId) {
         personRepository.deleteById(userId);
