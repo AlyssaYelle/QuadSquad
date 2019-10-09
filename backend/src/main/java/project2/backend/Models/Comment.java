@@ -1,46 +1,72 @@
 package project2.backend.Models;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
+
 @Entity
-@Table
+@Table(name = "comments")
 public class Comment {
+
     @Id
-    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Content of each post
     @Column
-    private String content;
+    private String comment;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name= "person_id", nullable = false)
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private Person person;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name= "post_id", nullable = false)
+    @JoinColumn(name = "post_id", nullable = false)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Post post;
 
-    public Comment(){};
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "person_id", nullable = false)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private Person person;
 
-    public Long getId(){
-        return this.id;
+
+    Comment(){};
+
+    public Long getId() {
+        return id;
     }
 
-    public void setId(Long id){
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getContent(){
-        return this.content;
+    public String getComment() {
+        return comment;
     }
 
-    public void setContent(String content){
-        this.content = content;
+    public void setComment(String comment) {
+        this.comment = comment;
     }
+
+    @JsonIgnore
+    public Post getPost() {
+        return post;
+    }
+
+    public void setPost(Post post) {
+        this.post = post;
+    }
+
+    @JsonIgnore
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
 }
