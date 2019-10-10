@@ -44,6 +44,7 @@ public class PostServiceImpl implements PostService {
     }
 
     public Iterable<Post> listAllPosts(){
-        return postRepository.findAll();
+        //return postRepository.findAll();
+        return postRepository.listPosts();
     }
 }
