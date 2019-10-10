@@ -31,7 +31,6 @@ public class PersonController {
         return ResponseEntity.ok(new JwtResponse(personService.createPerson(newPerson)));
     }
 
-
     @DeleteMapping("/user/{userId}")
     public HttpStatus deleteUserById(@PathVariable Long id) {
         return personService.deleteById(id);
