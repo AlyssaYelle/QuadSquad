@@ -29,6 +29,13 @@ public class PostController {
     @Autowired
     PostRepository postRepository;
 
+    private PostService postService;
+
+    @Autowired
+    public void setPostService(PostService postService){
+        this.postService = postService;
+    }
+
 
     @GetMapping("/list")
     public Iterable<Post> listAllPosts(){

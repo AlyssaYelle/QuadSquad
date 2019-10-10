@@ -22,6 +22,9 @@ public class PostServiceImpl implements PostService {
     @Autowired
     PersonService personService;
 
+    @Autowired
+    PostService postService;
+
     @Override
     public Post createPost(Post post) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
