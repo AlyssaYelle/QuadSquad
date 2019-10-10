@@ -31,6 +31,7 @@ public class PostController {
     @Autowired
     PostRepository postRepository;
 
+
     @Autowired
     JwtUtil jwtUtil;
 

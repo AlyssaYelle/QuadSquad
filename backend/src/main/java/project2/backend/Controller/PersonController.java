@@ -32,8 +32,8 @@ public class PersonController {
     }
 
     @DeleteMapping("/user/{userId}")
-    public HttpStatus deleteUserById(@PathVariable Long id) {
-        return personService.deleteById(id);
+    public HttpStatus deleteUserById(@PathVariable Long userId) {
+        return personService.deleteById(userId);
     }
 
     @GetMapping("/hello")
