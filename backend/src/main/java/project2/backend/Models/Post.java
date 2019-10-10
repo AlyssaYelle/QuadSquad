@@ -26,8 +26,8 @@ public class Post {
     they understand they are also removing all of their posts */
     // @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE})
     // This will create a column that will link these two tables (can't be null).
-//    @JoinColumn(name = "person_id", nullable = false)
-//    private Person person;
+    //    @JoinColumn(name = "person_id", nullable = false)
+    //    private Person person;
 
 
     @ManyToOne(fetch = FetchType.LAZY)
