@@ -18,7 +18,6 @@ public class PersonRoleController {
 
     @PostMapping("/createRole")
     public PersonRole createRole(@RequestBody PersonRole role) {
-        System.out.println("creating user role");
         return roleService.createRole(role);
     }
 }

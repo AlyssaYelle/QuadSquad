@@ -43,11 +43,11 @@ public class PostServiceImpl implements PostService {
         postRepository.delete(post);
     }
 
-    @Override
-    public Iterable<Post> listAllPosts(){
-        //return postRepository.findAll();
-        return postRepository.listPosts();
-    }
+//    @Override
+//    public Iterable<Post> listAllPosts(){
+//        //return postRepository.findAll();
+//        return postRepository.listPosts();
+//    }
 
     @Override
     public Iterable<Post> findAllPostsByPerson(Long personId){

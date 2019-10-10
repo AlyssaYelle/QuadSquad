@@ -40,7 +40,6 @@ public class Post {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-
     private List<Comment> comments;
 
     public Post(){};

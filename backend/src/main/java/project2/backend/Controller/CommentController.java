@@ -68,4 +68,9 @@ public class CommentController {
             return new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
         }
     }
+
+    @GetMapping("/list/{userId}")
+    public Iterable<Comment> listCommentsFromPerson(@PathVariable Long userId){
+        return commentService.listCommentsByPerson(userId);
+    }
 }
