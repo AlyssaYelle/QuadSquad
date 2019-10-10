@@ -68,4 +68,8 @@ public class CommentServiceImpl implements CommentService{
         commentRepository.delete(comment);
     }
 
+    @Override
+    public Iterable<Comment> listCommentsByPerson(Long id){
+        return commentRepository.listCommentsByPerson(id);
+    }
 }
