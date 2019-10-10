@@ -37,6 +37,7 @@ public class PostServiceImpl implements PostService {
         Post post = postRepository.findById(postId).get();
         Person person = personRepository.findById(post.getPerson().getId()).get();
         person.getPosts().remove(post);
+        postRepository.delete(post);
     }
 
     public Iterable<Post> listAllPosts(){
