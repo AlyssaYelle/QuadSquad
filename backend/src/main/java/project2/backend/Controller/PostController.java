@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
+import project2.backend.Config.JwtUtil;
+import project2.backend.Models.Person;
 import project2.backend.Models.Post;
 import project2.backend.Repositories.PersonRepository;
 import project2.backend.Repositories.PostRepository;
@@ -29,6 +31,8 @@ public class PostController {
     @Autowired
     PostRepository postRepository;
 
+    @Autowired
+    JwtUtil jwtUtil;
 
     @GetMapping("/list")
     public Iterable<Post> listAllPosts(){
@@ -56,18 +60,21 @@ public class PostController {
     public ResponseEntity deletePostById(@PathVariable Long postId) {
         // Post post = postRepository.findById(postId).get();
 
-        // TODO
         // get id of current user
-        // get id of the post author
-        // compare
-        // if match
-        // postService.deletePostById(postId);
-        // return new ResponseEntity(HttpStatus.OK);
-        // else
-        // return new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String personName = authentication.getName();
+        Long personId = personService.getPerson(personName).getId();
 
-        // placeholder
-        return null;
+        // Grab the id of the person associated with target post
+        Long associatedId = postRepository.findById(postId).get().getPerson().getId();
+
+        // Compare
+        if(personId == associatedId){
+            postService.deletePostById(postId);
+            return new ResponseEntity(HttpStatus.OK);
+        } else {
+            return new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
+        }
     }
 
 }
