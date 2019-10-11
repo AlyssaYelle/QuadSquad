@@ -41,7 +41,6 @@ public class CommentController {
 //    }
     @PostMapping("/create")
     public Comment createComment(@RequestBody Comment comment){
-
         return commentService.createComment(comment);
     }
     // should return something of form
@@ -49,8 +48,7 @@ public class CommentController {
 //        "id": 2,
 //            "comment": "Big headed sweete boye!!"
 //    }
-
-    // user should be able to delete their posts
+//  user should be able to delete their posts
     @DeleteMapping("/delete/{commentId}")
     public ResponseEntity deleteCommentById(@PathVariable Long commentId) {
         // Post post = postRepository.findById(postId).get();

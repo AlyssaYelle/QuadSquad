@@ -7,8 +7,11 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import project2.backend.Models.Person;
 import project2.backend.Models.Post;
+import project2.backend.Models.PostPersonObj;
 import project2.backend.Repositories.PersonRepository;
 import project2.backend.Repositories.PostRepository;
+
+import java.util.List;
 
 @Service
 public class PostServiceImpl implements PostService {
@@ -44,9 +47,10 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public Iterable<Post> listAllPosts(){
-        return postRepository.findAll();
-        //return postRepository.listPosts();
+
+    public List<PostPersonObj> listAllPosts(){
+        //return postRepository.findAll();
+        return postRepository.listPosts();
     }
 
     @Override
