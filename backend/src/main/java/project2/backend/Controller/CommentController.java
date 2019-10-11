@@ -69,8 +69,13 @@ public class CommentController {
         }
     }
 
-    @GetMapping("/list/{userId}")
+    @GetMapping("/list/user/{userId}")
     public Iterable<Comment> listCommentsFromPerson(@PathVariable Long userId){
         return commentService.listCommentsByPerson(userId);
+    }
+
+    @GetMapping("/list/post/{postId}")
+    public Iterable<Comment> listCommentsByPostId(@PathVariable Long postId){
+        return commentService.listCommentsByPostId(postId);
     }
 }

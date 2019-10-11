@@ -14,4 +14,6 @@ public interface CommentService {
     public void deleteCommentById(Long commentId);
 
     public Iterable<Comment> listCommentsByPerson(Long id);
+
+    public Iterable<Comment> listCommentsByPostId(Long id);
 }
