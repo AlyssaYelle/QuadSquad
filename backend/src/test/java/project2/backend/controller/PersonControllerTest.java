@@ -1,33 +1,35 @@
-package project2.backend.controller;
+package project2.backend.Controller;
 
-
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import project2.backend.Config.JwtUtil;
+import project2.backend.Services.PersonService;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.junit.runner.RunWith;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import project2.backend.Config.JwtUtil;
-import project2.backend.Controller.PersonController;
-import project2.backend.Services.PersonService;
 
-@RunWith(SpringRunner.class)
-@WebMvcTest(PersonController.class)
+import static org.mockito.ArgumentMatchers.any;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.mockito.Mockito.when;
+
+@RunWith(SpringRunner.class) // tells JUnit to run using Spring's testing support
+@WebMvcTest(PersonController.class) //autoconfiguration of Spring MVC and MockMmvc
 public class PersonControllerTest {
-    /** Main entry point for server-side Spring MVC test support. **/
+
+    /**
+     * Main entry point for server-side Spring MVC test support.
+     **/
     @Autowired
     private MockMvc mockMvc;
 
-    @MockBean
+    @MockBean  //to add mock objects to the Spring application context
     private PersonService personService;
 
     @MockBean
@@ -35,7 +37,7 @@ public class PersonControllerTest {
 
     @Test
     public void helloWorld_ReturnsString_Success() throws Exception {
-        RequestBuilder requestBuilder = MockMvcRequestBuilders
+        RequestBuilder requestBuilder = MockMvcRequestBuilders  //Mocks the 'get' request using 'hello'
                 .get("/hello")
                 .accept(MediaType.APPLICATION_JSON);
 
@@ -45,22 +47,33 @@ public class PersonControllerTest {
     }
 
     @Test
-    public void login_Returns200_Success() throws Exception {
+    public void login_Success() throws Exception {
+
         RequestBuilder requestBuilder = MockMvcRequestBuilders
-                .post("/login")
+                .post("/login") // make an HTTP request to a /login API
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(createPersonInJson("batman", "robin"));
+                .content(createUserInJson("joe", "abc"));
 
-        //Here we are mocking our call, login(), from personService
-        /* We are saying when the control reaches personService.login(), a String
-         is returned -> "123456" */
-        when(personService.login(any())).thenReturn("123456");
+        when(personService.login(any())).thenReturn("123456");  //mock the call to login() method in UserService class
 
-        //Here we are calling our requestBuilder and verifying our response
-        /*mockMvc.perform(requestBuilder)
-                .andExpect(status().isOk());*/
+        MvcResult result = mockMvc.perform(requestBuilder)  //call our requestBuilder and verify the response we get:
+                .andExpect(status().isOk())
+                .andExpect(content().json("{\"token\":\"123456\"}"))
+                .andReturn();  // stores the response we get after executing the requestBuilder
 
-        // Altered code from above ^. Below we are setting this up to store our response
+        System.out.println(result.getResponse().getContentAsString());
+    }
+
+    @Test
+    public void signUp_Success() throws Exception {
+
+        RequestBuilder requestBuilder = MockMvcRequestBuilders
+                .post("/signup")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(createUserInJson("joe", "abc"));
+
+        when(personService.createPerson(any())).thenReturn("123456");
+
         MvcResult result = mockMvc.perform(requestBuilder)
                 .andExpect(status().isOk())
                 .andExpect(content().json("{\"token\":\"123456\"}"))
@@ -69,8 +82,8 @@ public class PersonControllerTest {
         System.out.println(result.getResponse().getContentAsString());
     }
 
-    private static String createPersonInJson(String username, String password) {
-        return "{ \"username\": \"" + username + "\", " +
+    private static String createUserInJson(String name, String password) {  //convert username and password to a JSON format string,
+        return "{ \"username\": \"" + name + "\", " +
                 "\"password\":\"" + password + "\"}";
     }
 }

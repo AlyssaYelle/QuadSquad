@@ -32,7 +32,6 @@ public class Comment {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Person person;
 
-
     Comment(){};
 
     public Long getId() {

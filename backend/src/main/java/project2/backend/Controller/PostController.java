@@ -31,14 +31,13 @@ public class PostController {
     @Autowired
     PostRepository postRepository;
 
-
     @Autowired
     JwtUtil jwtUtil;
 
-    @GetMapping("/list")
-    public Iterable<Post> listAllPosts(){
-        return postService.listAllPosts();
-    }
+//    @GetMapping("/list")
+//    public Iterable<Post> listAllPosts(){
+//        return postService.listAllPosts();
+//    }
 
     // a logged in user should be able to create a post
 //    {
@@ -78,4 +77,8 @@ public class PostController {
         }
     }
 
+    @GetMapping("/list/{personId}")
+    public Iterable<Post> listAllPostsFromPerson(@PathVariable Long personId){
+        return postService.findAllPostsByPerson(personId);
+    }
 }
