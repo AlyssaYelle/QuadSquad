@@ -61,7 +61,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //        auth.inMemoryAuthentication().withUser("dba").password("dba").roles("DBA");
 //    }
 
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.cors();
@@ -88,5 +87,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
+
 }
 

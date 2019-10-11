@@ -11,10 +11,13 @@ import org.springframework.web.bind.annotation.*;
 import project2.backend.Config.JwtUtil;
 import project2.backend.Models.Person;
 import project2.backend.Models.Post;
+import project2.backend.Models.PostPersonObj;
 import project2.backend.Repositories.PersonRepository;
 import project2.backend.Repositories.PostRepository;
 import project2.backend.Services.PersonService;
 import project2.backend.Services.PostService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/post")
@@ -34,10 +37,10 @@ public class PostController {
     @Autowired
     JwtUtil jwtUtil;
 
-//    @GetMapping("/list")
-//    public Iterable<Post> listAllPosts(){
-//        return postService.listAllPosts();
-//    }
+    @GetMapping("/list")
+    public List<PostPersonObj> listAllPosts(){
+        return postService.listAllPosts();
+    }
 
     // a logged in user should be able to create a post
 //    {
@@ -81,4 +84,6 @@ public class PostController {
     public Iterable<Post> listAllPostsFromPerson(@PathVariable Long personId){
         return postService.findAllPostsByPerson(personId);
     }
+
+
 }
