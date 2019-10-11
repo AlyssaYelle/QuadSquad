@@ -38,29 +38,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(personService);
     }
 
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//
-//        http.csrf().disable()
-//                .authorizeRequests()
-//                .antMatchers("/signup/**", "/login/**").permitAll()
-//                //.antMatchers("/user/**", "/profile/**", "/post/**", "/comment/**").authenticated()
-//                .antMatchers("/user/**", "/profile/**", "/post/**", "/comment/**").permitAll()
-//                //.antMatchers("/role/**").hasRole("DBA")
-//                .antMatchers("/role/**").permitAll()
-//                .and()
-//                .httpBasic();
-//
-//        http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
-//    }
-//    @Override
-//    public void configure(AuthenticationManagerBuilder auth) throws Exception{
-//
-////        User.UserBuilder person = User.withDefaultPasswordEncoder();
-//        auth.inMemoryAuthentication().withUser("test").password("test").roles("ADMIN");
-//        auth.inMemoryAuthentication().withUser("dba").password("dba").roles("DBA");
-//    }
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.cors();

@@ -7,9 +7,12 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
+/* Commenting this out (below) because this is suppose be causing errors of some sort
+ when returning multiple posts */
+
+//@JsonIdentityInfo(
+//        generator = ObjectIdGenerators.PropertyGenerator.class,
+//        property = "id")
 
 @Entity
 @Table(name = "comments")
