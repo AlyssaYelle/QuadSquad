@@ -9,4 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 public interface CommentRepository extends CrudRepository<Comment, Long> {
     @Query("FROM Comment c WHERE c.person.id = ?1")
     public Iterable<Comment> listCommentsByPerson(Long id);
+
+    @Query("FROM Comment c WHERE c.post.id = ?1")
+    public Iterable<Comment> listCommentsByPostId(Long id);
 }

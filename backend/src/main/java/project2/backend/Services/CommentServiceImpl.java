@@ -72,4 +72,11 @@ public class CommentServiceImpl implements CommentService{
     public Iterable<Comment> listCommentsByPerson(Long id){
         return commentRepository.listCommentsByPerson(id);
     }
+
+
+    @Override
+    public Iterable<Comment> listCommentsByPostId(Long id){
+        return commentRepository.listCommentsByPostId(id);
+    }
+
 }
