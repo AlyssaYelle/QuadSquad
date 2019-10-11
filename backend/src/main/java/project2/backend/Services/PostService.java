@@ -9,6 +9,7 @@ import java.util.List;
 public interface PostService {
     public Post createPost(Post newPost);
     public void deletePostById(Long postId);
+
     public List<PostPersonObj> listAllPosts();
     public Iterable<Post> findAllPostsByPerson(Long id);
 }
