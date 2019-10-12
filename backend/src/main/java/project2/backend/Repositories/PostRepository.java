@@ -10,6 +10,7 @@ import java.util.List;
 
 @Repository
 public interface PostRepository extends CrudRepository<Post, Long> {
+
     @Query("FROM Post p WHERE p.person.id= ?1")
     public Iterable<Post> findAllPostsByPerson(Long personId);
 

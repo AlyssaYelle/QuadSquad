@@ -40,4 +40,9 @@ public class PersonController {
     public String helloWorld() {
         return "Hello World!!";
     }
+
+    @GetMapping("/person/{username}")
+    public Person getPersonInfo(@PathVariable String username) {
+        return personService.getPerson(username);
+    }
 }
