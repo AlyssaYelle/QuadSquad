@@ -80,6 +80,11 @@ public class PostController {
         }
     }
 
+//    @GetMapping("/list/{personId}")
+//    public Iterable<Post> listAllPostsFromPerson(@PathVariable Long personId){
+//        return postService.findAllPostsByPerson(personId);
+//    }
+
     @GetMapping("/list/{personId}")
     public Iterable<Post> listAllPostsFromPerson(@PathVariable Long personId){
         return postService.findAllPostsByPerson(personId);
