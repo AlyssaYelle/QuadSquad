@@ -51,6 +51,7 @@ public class CommentController {
 //  user should be able to delete their posts
     @DeleteMapping("/delete/{commentId}")
     public ResponseEntity deleteCommentById(@PathVariable Long commentId) {
+        System.out.println("Delete comment controller starting");
         // Post post = postRepository.findById(postId).get();
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String personName = authentication.getName();
@@ -58,11 +59,16 @@ public class CommentController {
         Long personId = personService.getPerson(personName).getId();
         // get id of the comment author
         Long associatedId = commentRepository.findById(commentId).get().getPerson().getId();
+        System.out.println("person id : " + personId);
+        System.out.println("comment id : " + commentId);
+        System.out.println("associated id : " + associatedId);
         // compare
-        if(commentId == associatedId){
+        if(personId == associatedId){
             commentService.deleteCommentById(commentId);
+            System.out.println("delete comment appears to be successful");
             return new ResponseEntity(HttpStatus.OK);
         } else {
+            System.out.println("delete comment unsuccessful");
             return new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
         }
     }
