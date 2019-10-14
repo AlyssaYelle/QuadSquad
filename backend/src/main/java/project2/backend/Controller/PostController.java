@@ -25,6 +25,12 @@ public class PostController {
     @Autowired
     PostService postService;
 
+    // allows the PostController Test to run
+    @Autowired
+    public void setPostService(PostService postService) {
+        this.postService = postService;
+    }
+
     @Autowired
     PersonService personService;
 
