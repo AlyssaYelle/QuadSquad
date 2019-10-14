@@ -27,25 +27,6 @@ public class Person {
     @Column
     private String email;
 
-    // 1-1 relationship with personProfile table
-    // joined on username
-    // if a person is deleted from db, their profile should also be deleted
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="profile_id")
-    private PersonProfile personProfile;
-
-    // get personProfile
-    public PersonProfile getPersonProfile() {
-        return personProfile;
-    }
-
-    // set personProfile
-
-    public void setPersonProfile(PersonProfile personProfile) {
-        this.personProfile = personProfile;
-    }
-
-
     // link with PersonRole
     @ManyToOne(cascade = {CascadeType.DETACH,
             CascadeType.MERGE, CascadeType.REFRESH})
@@ -77,7 +58,6 @@ public class Person {
     )
     @JsonIgnore
     private List<Comment> comments;
-
 
     public Person(){};
 
@@ -115,9 +95,7 @@ public class Person {
         return email;
     }
 
-
     // column setters
-
 
     public void setId(Long id) {
         this.id = id;

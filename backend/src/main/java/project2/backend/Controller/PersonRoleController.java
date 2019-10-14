@@ -11,9 +11,9 @@ public class PersonRoleController {
     @Autowired
     PersonRoleService roleService;
 
-    @GetMapping("/{rolename}")
-    public PersonRole getRole(@PathVariable String rolename) {
-        return roleService.getRole(rolename);
+    @GetMapping("/{roleName}")
+    public PersonRole getRole(@PathVariable String roleName) {
+        return roleService.getRole(roleName);
     }
 
     @PostMapping("/createRole")

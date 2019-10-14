@@ -12,7 +12,9 @@ QUAD SQUAD is an online forum for lifting enthusiasts to to share their acheivem
 
 ## Technologies Used
 Back end: Java, Springboot
+
 Front end: Javascript, HTML, CSS
+
 Collaboration: Git/github
 
 ## Database Structure
@@ -20,9 +22,31 @@ Collaboration: Git/github
 
 ## API Structure
 
-## Front-end Design
+![API Structure](/img/API-Structure.png)
 
-## Wireframes
+## Front-end Design
+The code for our front-end design is located [here](https://github.com/AlyssaYelle/front-end-designs-misc/tree/master/quad-squad).
+
+See user flow diagram below.
+
+![User flow diagram](/img/user-flow-site.png)
+
+## Timeline
+
+### Days 1-2
+Preplanning, discuss front end and back end project requirements, establish flow chart of SQL mapping and other wireframes
+
+### Days 3-4
+Creation of SQL database, set up security configuration, dev properties, begin writing models and other java classes.
+
+### Days 5-6
+Continue updating the java classes, fine-tune the code snippets and API design, brainstorming ideas for front end, begin unit testing and API testing
+
+### Days 7-8
+Redesign of front end, creating user stories, test user functions on front end,  finish unit testing on back end, resolve any integration issues of merging front and back
+
+### Day 9
+Test full functionality, discuss presentation of project, complete any missing deliverables
 
 ## Final Thoughts
 Project 2 proved to be more accessible and easier to transform from concept to completion than Project 1. We had cultivated more experience working both independently and in group settings on class lab assignments and thus, more seemed to go well for our team than awry. Our general approach was to first create an ER diagram to establish the database relations between a person using the app, posts created, comments made to a post and any other necessary entities. Then we set about writing the code for the program files following the general workflow of creating models, repositories, service files, implementation files, and then controllers. White boarding was very helpful in the process of discussing relations, especially when we had to revise the roles and make tweaks to the mappings.
