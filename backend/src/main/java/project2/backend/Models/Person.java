@@ -78,7 +78,6 @@ public class Person {
     @JsonIgnore
     private List<Comment> comments;
 
-
     public Person(){};
 
     public List<Post> getPosts() {
