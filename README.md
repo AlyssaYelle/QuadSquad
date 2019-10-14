@@ -22,6 +22,8 @@ Collaboration: Git/github
 
 ## API Structure
 
+![API Structure](/img/API-Structure.png)
+
 ## Front-end Design
 The code for our front-end design is located [here](https://github.com/AlyssaYelle/front-end-designs-misc/tree/master/quad-squad).
 
