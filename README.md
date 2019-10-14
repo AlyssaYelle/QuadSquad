@@ -2,7 +2,7 @@
 A social media experience designed by Alyssa Jones, Tefe Del Rosario-Bell, & Ashley Joseph
 
 ## Concept
-QUAD SQUAD is an online forum for lifting enthusiasts to to share their acheivements, seek advice, find information about competitions, and generally connect with other individuals who have or desire fabulous quads. No arms bros allowed!
+QUAD SQUAD is an online forum for lifting enthusiasts to share their acheivements, seek advice, find information about competitions, and generally connect with other individuals who have or desire fabulous quads. No arms bros allowed!
 
 ## User Stories
 ![Entity-Relationship Diagram](/img/freya.png)
