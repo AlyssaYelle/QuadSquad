@@ -1,5 +1,6 @@
 # QUAD SQUAD
 A social media experience designed by Alyssa Jones, Tefe Del Rosario-Bell, & Ashley Joseph
+See QUAD SQUAD in action [here!](https://alyssayelle.github.io/quad-squad-site/)
 
 ## Concept
 QUAD SQUAD is an online forum for lifting enthusiasts to share their acheivements, seek advice, find information about competitions, and generally connect with other individuals who have or desire fabulous quads. No arms bros allowed!
